@@ -1,0 +1,11 @@
+.tic-tac-toe-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.tic-tac-toe-cell {
+    width: 150px;
+    height: 150px;
+    margin: 2px;
+    background-color: gray;
+}

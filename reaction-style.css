@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.sprite {
+    width: 128px;
+    height: 128px;
+    image-rendering: pixelated;
+}
+
+.cpu-sprite {
+    transform: scale(-1.0, 1.0);
+}
