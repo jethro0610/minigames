@@ -10,7 +10,7 @@ const PIPE_WIDTH = 50;
 const pipeSprite = new Image();
 pipeSprite.src = "pipe.png";
 
-const player = {
+let player = {
     x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
     y: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
     gravity: 0
@@ -18,6 +18,18 @@ const player = {
 let pipes = [];
 let fail = false;
 let score = 0;
+
+function reset() {
+    player = {
+        x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
+        y: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
+        gravity: 0
+    };
+    pipes = [];
+    fail = false;
+    score = 0;
+    updateScore();
+}
 
 function randomRange(min, max) {
     range = max - min
@@ -137,7 +149,12 @@ window.addEventListener('load', function() {
 })
 
 document.addEventListener("keydown", event => {
-    if (event.code === "Space" && !fail) {
+    if (event.code == "Space" && !fail) {
         player.gravity = -8;
+    }
+
+    if (event.code == "Enter") {
+        console.log("ent");
+        reset();
     }
 })
