@@ -17,23 +17,32 @@ const player = {
 };
 let pipes = [];
 let fail = false;
+let score = 0;
 
 function randomRange(min, max) {
     range = max - min
     return (Math.random() * range) + min;
 }
 
+function updateScore() {
+    document.getElementById("score").innerHTML = "Score: " + score.toString();
+}
+
 function createPipes() {
     const holeHeight = randomRange(100, 400);
     const topPipe = {
         x: GAME_WIDTH,
-        y: -(GAME_HEIGHT - holeHeight + PIPE_GAP)
+        y: -(GAME_HEIGHT - holeHeight + PIPE_GAP),
+        passed: false,
+        top: true
     }
     pipes.push(topPipe);
 
     const bottomPipe = {
         x: GAME_WIDTH,
-        y: holeHeight + PIPE_GAP
+        y: holeHeight + PIPE_GAP,
+        passed: false,
+        top: false
     };
     pipes.push(bottomPipe);
 }
@@ -52,6 +61,11 @@ function update() {
 
     pipes.forEach((pipe) => {
         pipe.x -= 5.0;
+        if (pipe.top && pipe.x < GAME_WIDTH / 2 && !pipe.passed) {
+            pipe.passed = true;
+            score++;
+            updateScore();
+        }
     });
     pipes = pipes.filter((pipe) => pipe.x > -50);
 
@@ -99,13 +113,12 @@ function draw(ctx) {
     ctx.fillStyle = "gray"
     ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    ctx.fillStyle = "white"
-    ctx.fillRect(player.x, player.y, 25, 25);
-
     pipes.forEach((pipe) => {
-        ctx.fillStyle = "red";
         ctx.drawImage(pipeSprite, pipe.x, pipe.y);
     });
+
+    ctx.fillStyle = "white"
+    ctx.fillRect(player.x, player.y, 25, 25);
 }
 
 window.addEventListener('load', function() {
