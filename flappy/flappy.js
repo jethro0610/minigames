@@ -2,13 +2,15 @@ const FRAMERATE = 60;
 const GAME_WIDTH = 500;
 const GAME_HEIGHT = 500;
 
-const PLAYER_SIZE = 25;
+const PLAYER_SIZE = 16;
 
 const PIPE_GAP = 75;
 const PIPE_WIDTH = 50;
 
 const pipeSprite = new Image();
 pipeSprite.src = "pipe.png";
+const subSprite = new Image();
+subSprite.src = "sub.png";
 
 let player = {
     x: GAME_WIDTH / 2 - PLAYER_SIZE / 2,
@@ -122,15 +124,14 @@ function update() {
 function draw(ctx) {
     ctx.clearRect(0, 0, 0, 0);
 
-    ctx.fillStyle = "gray"
+    ctx.fillStyle = "#514680"
     ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     pipes.forEach((pipe) => {
         ctx.drawImage(pipeSprite, pipe.x, pipe.y);
     });
 
-    ctx.fillStyle = "white"
-    ctx.fillRect(player.x, player.y, 25, 25);
+    ctx.drawImage(subSprite, player.x - 32, player.y - 32, 64, 64);
 }
 
 window.addEventListener('load', function() {
