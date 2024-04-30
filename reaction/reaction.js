@@ -16,7 +16,7 @@ function reset(resetScore) {
     over = false;
     setSprite("player", "idle.png");
     setSprite("cpu", "idle.png");
-    setTitle("Press spacebar when ready");
+    setStatus("Press spacebar when ready");
 
     if (resetScore) {
         cpuLevel = 0;
@@ -35,9 +35,8 @@ function randomRange(min, max) {
     return (Math.random() * range) + min;
 }
 
-function setTitle(text) {
-    const title = document.getElementById("title");
-    title.innerHTML = text;
+function setStatus(status) {
+    document.getElementById("status").innerHTML = status;
 }
 
 function updateScore() {
@@ -52,14 +51,14 @@ function queueReset() {
 }
 
 function startFire() {
-    setTitle("Ready...");
+    setStatus("Ready...");
     started = true;
     canFire = false;
 
     const fireTime = randomRange(MIN_FIRE_TIME, MAX_FIRE_TIME);
     setTimeout(() => {
         if (started && !over) {
-            setTitle("Fire!");
+            setStatus("Fire!");
             canFire = true;
         }
     }, fireTime);
@@ -73,7 +72,7 @@ function startFire() {
             cpuScore++;
             winStreak = 0;
             cpuLevel -= 0.5;
-            setTitle("CPU wins!");
+            setStatus("CPU wins!");
             setSprite("cpu", "win.png");
             setSprite("player", "lose.png");
             updateScore();
@@ -95,7 +94,7 @@ function onSpacePressed() {
         playerScore++;
         winStreak++;
         cpuLevel += winStreak;
-        setTitle("Player wins!");
+        setStatus("Player wins!");
         setSprite("cpu", "lose.png");
         setSprite("player", "win.png");
         updateScore();
@@ -106,7 +105,7 @@ function onSpacePressed() {
         canFire = false;
         cpuScore++;
         winStreak = 0;
-        setTitle("Misfire...");
+        setStatus("Misfire...");
         setSprite("cpu", "win.png");
         setSprite("player", "misfire.png");
         updateScore();

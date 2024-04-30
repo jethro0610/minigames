@@ -19,6 +19,7 @@ let player = {
 };
 let pipes = [];
 let fail = false;
+let pause = true;
 let score = 0;
 
 function reset() {
@@ -62,6 +63,9 @@ function createPipes() {
 }
 
 function update() {
+    if (pause)
+        return;
+
     player.gravity += 0.5;
     player.y += player.gravity;
     if (player.y + PLAYER_SIZE > GAME_HEIGHT) {
@@ -140,7 +144,8 @@ window.addEventListener('load', function() {
     const ctx = canvas.getContext("2d");
 
     setInterval(() => {
-        createPipes();
+        if (!pause || fail)
+            createPipes();
     }, 1000);
 
     setInterval(() => {
@@ -151,11 +156,15 @@ window.addEventListener('load', function() {
 
 document.addEventListener("keydown", event => {
     if (event.code == "Space" && !fail) {
-        player.gravity = -8;
+        if (pause) {
+            pause = false;
+        }
+        else {
+            player.gravity = -8;
+        }
     }
 
     if (event.code == "Enter") {
-        console.log("ent");
         reset();
     }
 })
