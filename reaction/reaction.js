@@ -58,7 +58,7 @@ function startFire() {
     const fireTime = randomRange(MIN_FIRE_TIME, MAX_FIRE_TIME);
     setTimeout(() => {
         if (started && !over) {
-            setStatus("Fire!");
+            setStatus("Fire with spacebar!");
             canFire = true;
         }
     }, fireTime);

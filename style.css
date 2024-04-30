@@ -19,6 +19,7 @@ body {
 
 .game-button {
     color: #514680;
+    text-decoration: none;
     display:flex;
     flex-direction: row;
     align-items: center;
