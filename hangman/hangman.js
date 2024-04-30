@@ -19,11 +19,11 @@ const possibleAnswers = [
 	"ruby"
 ]
 
-let answer = '';
+let answer = "";
 const maxWrong = 6;
 let mistakes = 0;
 let guessed = [];
-let inputWord = '';
+let inputWord = "";
 
 // Select a random word from the list of programming languages
 function setRandomAnswer() {
@@ -31,26 +31,29 @@ function setRandomAnswer() {
 }
 
 function generateButtons() {
-    let buttonsHTML = 'abcdefghijklmnopqrstuvwxyz'.split('').map(letter =>
+    let buttonsHTML = "abcdefghijklmnopqrstuvwxyz".split("").map(letter =>
         `
           <button
             id='` + letter + `'
-            onClick="handleGuess('` + letter + `')"
+            onClick='handleGuess("` + letter + `")'
           >
             ` + letter + `
           </button>
-        `).join('');
+        `).join("");
 
-    document.getElementById('keyboard').innerHTML = buttonsHTML;
+    document.getElementById("keyboard").innerHTML = buttonsHTML;
 }
 
 function handleGuess(chosenLetter) {
-    // See if the letter has already been guessed, if it hasn't
+    if (inputWord == answer || mistakes >= maxWrong)
+        return;
+
+    // See if the letter has already been guessed, if it hasn"t
     // mark it as guessed
     guessed.indexOf(chosenLetter) === -1 ? guessed.push(chosenLetter) : null;
 
     // Disable the letter
-    document.getElementById(chosenLetter).setAttribute('disabled', true);
+    document.getElementById(chosenLetter).classList.add("disabled");
 
     if (answer.indexOf(chosenLetter) >= 0) {
         // When the guessed letter is in the answer,
@@ -58,7 +61,7 @@ function handleGuess(chosenLetter) {
         checkIfGameWon();
     }
     else if (answer.indexOf(chosenLetter) === -1) {
-        // If the word wasn't in the answer, add to
+        // If the word wasn"t in the answer, add to
         // the mistakes and update the visuals accordingly
         mistakes++;
         updateMistakes();
@@ -68,38 +71,37 @@ function handleGuess(chosenLetter) {
 }
 
 function updateHangmanPicture() {
-  document.getElementById('hangmanPic').src = './images/' + mistakes + '.jpg';
+  document.getElementById("pic").src = mistakes + ".png";
 }
 
 function checkIfGameWon() {
     if (inputWord === answer) {
-        document.getElementById('keyboard').innerHTML = 'You Won!!!';
+        document.getElementById("word-spotlight").innerHTML = answer + " is correct!";
     }
 }
 
 function checkIfGameLost() {
     if (mistakes === maxWrong) {
-        document.getElementById('wordSpotlight').innerHTML = 'The answer was: ' + answer;
-        document.getElementById('keyboard').innerHTML = 'You Lost!!!';
+        document.getElementById("word-spotlight").innerHTML = "Sorry, answer was " + answer;
     }
 }
 
 function updateInputWord() {
     // Take each letter of the answer that the user has guessed
-    // and put it in the inputWord. Any letter that hasn't been
+    // and put it in the inputWord. Any letter that hasn"t been
     // guessed yet becomes an _
-    inputWord = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
-    document.getElementById('wordSpotlight').innerHTML = inputWord;
+    inputWord = answer.split("").map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join("");
+    document.getElementById("word-spotlight").innerHTML = inputWord;
 }
 
 function updateMistakes() {
-    document.getElementById('mistakes').innerHTML = mistakes;
+    document.getElementById("mistakes").innerHTML = mistakes;
 }
 
 function reset() {
     mistakes = 0;
     guessed = [];
-    document.getElementById('hangmanPic').src = './images/0.jpg';
+    document.getElementById("pic").src = "0.png";
 
     setRandomAnswer();
     updateInputWord();
@@ -107,8 +109,8 @@ function reset() {
     generateButtons();
 }
 
-window.addEventListener('load', function() {
-    document.getElementById('maxWrong').innerHTML = maxWrong;
+window.addEventListener("load", function() {
+    document.getElementById("max-wrong").innerHTML = maxWrong;
     setRandomAnswer();
     generateButtons();
     updateInputWord();
