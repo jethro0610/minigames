@@ -56,6 +56,16 @@ button {
     animation-duration: 0.25s;
 }
 
-.disabled {
+button:hover {
+    background-color: #C4BF93;
+    transition-duration: 0.2s;
+}
+
+button:active {
+    background-color: #AAA57A;
+    transition-duration: 0.2s;
+}
+
+.disabled{
     background-color: #AAA57A;
 }

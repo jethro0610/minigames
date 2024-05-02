@@ -45,6 +45,16 @@ body {
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 64px;
+    user-select: none;
+}
+
+#restart-button:hover {
+    background-color: #A099BF;
+    transition-duration: 0.2s;
+}
+
+#restart-button:active {
+    background-color: #7A7491;
 }
 
 .tic-tac-toe-row {
@@ -68,6 +78,11 @@ body {
 
     animation-name: pop-in;
     animation-duration: 0.25s;
+}
+
+.tic-tac-toe-cell:hover {
+    background-color: #C4BF93;
+    transition-duration: 0.2s;
 }
 
 .tic-tac-toe-cell > div {

@@ -1,3 +1,4 @@
+// Game state
 const board = ["", "", "", "", "", "", "", "", ""];
 const cells = document.getElementsByClassName("tic-tac-toe-cell");
 const winConditions = [
@@ -28,14 +29,19 @@ function reset() {
 function queueCPUMove() {
     let cpuMoveIndex = -1;
 
+    // If there's a move for the CPU to win
+    // take that move...
     const cpuWinningCell = findWinningCell("O"); 
     if (cpuWinningCell != -1)
         cpuMoveIndex = cpuWinningCell;
 
+    // ...or if there's a move for the player
+    // to win block it...
     const playerWinningCell = findWinningCell("X");
     if (playerWinningCell != -1 && cpuMoveIndex == -1)
         cpuMoveIndex = playerWinningCell;
 
+    // ...otherwise just take a random move
     if (cpuMoveIndex == -1) {
         const validCells = [];
         for (let i = 0; i < board.length; i++) {
@@ -48,20 +54,29 @@ function queueCPUMove() {
         cpuMoveIndex = validCells[Math.floor(Math.random() * validCells.length)]
     }
 
+    // Delay the move to simulate the CPU thinking
     setTimeout(() => {
         doMove(cpuMoveIndex, "O");
     }, 1000);
 }
 
 function doMove(index, character) {
+    // Don't allow moves when there's
+    // already a winner...
     if (winner != "")
         return false;
+    // ... or the selected cell already
+    // has a move on it...
     if (board[index] != "")
         return false;     
+    // ... or if it's not the character's
+    // turn
     if (turn != character)
         return false;
 
     board[index] = character; 
+
+    // Insert the character symbol on the board
     const cellText = document.createElement("div");
     cellText.innerHTML = character;
     cellText.className = "cell-text-" + character;
@@ -119,6 +134,8 @@ function isTie() {
     if (winner != "")
         return false;
 
+    // If the board is full with no winner,
+    // it's a tie
     let full = true;
     for (let i = 0; i < board.length; i++) {
         if (board[i] == "") {
@@ -138,6 +155,9 @@ function findWinningCell(character) {
         let matchesCharacter = true;
 
         winCondition.forEach((cell) => {
+            // Get the number of empty cells
+            // and keep track of the last one
+            // we passed...
             if (board[cell] == "") {
                 lastEmptyCell = cell;
                 numEmptyCells++;
@@ -148,6 +168,8 @@ function findWinningCell(character) {
             }
         });
 
+        // ...and if the win condition has only
+        // 1 move to victory, take that cell
         if (numEmptyCells == 1 && matchesCharacter) {
             winningCell = lastEmptyCell;
             return;

@@ -26,3 +26,7 @@ body {
     padding-right: 16px;
     border-radius: 64px;
 }
+
+canvas {
+    image-rendering: pixelated;
+}

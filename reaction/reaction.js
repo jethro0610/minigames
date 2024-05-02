@@ -1,7 +1,9 @@
+// Game properties
 const MIN_FIRE_TIME = 250;
 const MAX_FIRE_TIME = 2000;
 const INITIAL_CPU_REACTION_TIME = 600; 
 
+// Game state
 let started = false;
 let canFire = false;
 let over = false;
@@ -55,6 +57,8 @@ function startFire() {
     started = true;
     canFire = false;
 
+    // Determine a random time to allow firing
+    // and set a timeout when it's reached
     const fireTime = randomRange(MIN_FIRE_TIME, MAX_FIRE_TIME);
     setTimeout(() => {
         if (started && !over) {
@@ -63,10 +67,13 @@ function startFire() {
         }
     }, fireTime);
 
+    // The CPU fires at a time based on how many wins
+    // and losses the player has.
     const reactionTime = INITIAL_CPU_REACTION_TIME - cpuLevel * 125;
-    console.log(reactionTime);
     setTimeout(() => {
         if (started && !over) {
+            // The CPU fired before the player
+            // and should count as a loss
             over = true;
             canFire = false;
             cpuScore++;
@@ -89,6 +96,8 @@ function onSpacePressed() {
         startFire();
     }
     else if (canFire) {
+        // The player fired before the CPU
+        // and should count this as a win
         over = true;
         canFire = false;                
         playerScore++;
@@ -101,6 +110,8 @@ function onSpacePressed() {
         queueReset();
     }
     else {
+        // The player fired before they're supposed 
+        // to and should count this as a loss
         over = true;
         canFire = false;
         cpuScore++;
