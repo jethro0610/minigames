@@ -24,3 +24,11 @@ Get through as many pipes as possible without touching the pipes or the ground. 
 
 ## Hangman
 The word game classic. Click on any letter to guess if they're in the word. If you guess 6 incorrectly, you lose. Each word is based on a programming language, tool, or framework. Hit "Reset" at anytime to start a new game.
+
+# Modifying the Games
+Each game can be found in their respective folders:
+
+Tic-Tac-Toe: /tictactoe
+Spacebar Slinger: /reaction
+Submarine Pipes: /flappy
+Hangman: /hangman
