@@ -11,12 +11,6 @@ body {
     margin: 0;
 }
 
-#title {
-    color: white;
-    font-size: 48px;
-    text-shadow: 0px 2px gray;
-}
-
 #score {
     color: white;
     background-color: #514680;
