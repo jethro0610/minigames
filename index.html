@@ -8,6 +8,52 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <!--
+        This arcade website showed a few games that I think are mildly fun as time
+        killers and were excellent projects to brush-up on Javascript.
+
+        In terms of design choices, I chose to stick to a purple and yellow color
+        scheme since the colors are complementary. Additionally, the colors are kept
+        light and low contrast to keep them easy on the eyes. The homepage is a simple
+        list of buttons for every game with icons representing what the games are.
+        The page uses a unified fonr with Nunito Sans and was put in using Google
+        Fonts.
+
+        There are 4 games: Tic-Tac-Toe, Spacebar Slinger, Submarine Pipes, and Hangman
+
+        Tic-Tac-Toe is self-expanatory, since most people have playeed it. Furthermore,
+        the code was based on the code provided by Professor Posnett. There's some 
+        extra features like pop-in animations for the moves and the CPU waiting a bit
+        before doing a move. Furthermore, the CPU will either take a winning move or
+        block a player's winning move when possible, but do random moves otherwise.
+
+        Spacebar Slinger is a reaction speed test where the player has to press space
+        when prompted before the CPU. The CPU also gets a better reaction speed the
+        more the player wins and slower reaction the more they lose to adjust the 
+        difficulty based on player-skill.
+
+        Submarine Pipes is a reskinned version of the mobile game Flappy Bird. The
+        game was implemented using Javascript canvas to allow for dynamic element
+        positioning. The loop runs 60 times per second to match a monitor's refresh
+        rate.
+
+        Finally, Hangman is my open-source based game. The code was provided by an
+        MIT licensed project on GitHub by simonjsuh. Some changes I had to make were
+        removing the Bootstrap styling on the page and replacing it with my own. I
+        also had to redraw the hangman visuals to match the colors of my website. The
+        original version lacked clear variable names and comments, so I changed those
+        to make the source-code more readable. The page also used floats instead of
+        flexbox, so I changed that to be up to modern CSS standards.
+
+        Some challenges I faced were figuring out my own CPU behavior for tic-tac-toe.
+        I wanted the game to be medium level difficulty, and I think my version is a 
+        good compromise between always winning and randomness. Spacebar Slinger required
+        some game state tracking and looping in order to make it keep running without
+        extra user input. Submarine Pipes required a whole different paradigm with JS
+        canvas, as elements needed to be positioned without the DOM. And Hangman required
+        some time to set with poorly-documented source code to make it readable and
+        workable with my project.
+        -->
     </head>
 
     <body>
@@ -19,7 +65,7 @@
                 [CC0 1.0 DEED (https://creativecommons.org/publicdomain/zero/1.0/)]
                 URL: https://openclipart.org/detail/315483/monochrome-tictactoe
             -->
-            <img src="tictactoe-icon.png">
+            <img src="tictactoe-icon.png" alt="The game tic-tac-toe">
         </a>
 
         <a href="reaction/reaction.html" class="game-button">
@@ -28,7 +74,7 @@
                 Image source: self-made
                 [https://opensource.org/license/mit]
             -->
-            <img src="reaction-icon.png" class="pixel-img">
+            <img src="reaction-icon.png" class="pixel-img" alt="A cowboy without a torso shooting a gun">
         </a>
 
         <a href="flappy/flappy.html" class="game-button">
@@ -46,7 +92,7 @@
                 Image source: self-made
                 [https://opensource.org/license/mit]
             -->
-            <img src="hangman/6.png" class="pixel-img">
+            <img src="hangman/6.png" class="pixel-img" alt="A man hanging from a purple pole">
         </a>
 
         <footer>
