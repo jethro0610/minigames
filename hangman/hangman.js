@@ -1,6 +1,6 @@
-/*
-Source: https://github.com/simonjsuh/Vanilla-Javascript-Hangman-Game
-*/
+// Original source code: GitHub, Made by user: simonjsuh
+// [https://opensource.org/license/mit]
+// URL: https://github.com/simonjsuh/Vanilla-Javascript-Hangman-Game
 
 const possibleAnswers = [
 	"python",

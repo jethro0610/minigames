@@ -1,3 +1,6 @@
+// Image sources: self-made
+// [https://opensource.org/license/mit]
+
 // Game properties
 const MIN_FIRE_TIME = 250;
 const MAX_FIRE_TIME = 2000;
