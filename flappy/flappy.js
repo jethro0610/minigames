@@ -45,11 +45,6 @@ function reset() {
     updateScore();
 }
 
-function randomRange(min, max) {
-    range = max - min
-    return (Math.random() * range) + min;
-}
-
 function updateScore() {
     document.getElementById("score").innerHTML = "Score: " + score.toString();
 }

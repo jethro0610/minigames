@@ -35,11 +35,6 @@ function setSprite(id, sprite) {
     document.getElementById(id).src = sprite;
 }
 
-function randomRange(min, max) {
-    range = max - min
-    return (Math.random() * range) + min;
-}
-
 function setStatus(status) {
     document.getElementById("status").innerHTML = status;
 }

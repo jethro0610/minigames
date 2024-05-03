@@ -20,12 +20,12 @@ const possibleAnswers = [
 ]
 
 let answer = "";
-const maxWrong = 6;
+const maxMistakes = 6;
 let mistakes = 0;
 let guessed = [];
 let inputWord = "";
 
-// Select a random word from the list of programming languages
+// Select a random word from the list of answers
 function setRandomAnswer() {
     answer = possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)];
 }
@@ -45,7 +45,7 @@ function generateButtons() {
 }
 
 function handleGuess(chosenLetter) {
-    if (inputWord == answer || mistakes >= maxWrong)
+    if (inputWord == answer || mistakes >= maxMistakes)
         return;
 
     // See if the letter has already been guessed, if it hasn"t
@@ -81,7 +81,7 @@ function checkIfGameWon() {
 }
 
 function checkIfGameLost() {
-    if (mistakes === maxWrong) {
+    if (mistakes === maxMistakes) {
         document.getElementById("word-spotlight").innerHTML = "Sorry, answer was " + answer;
     }
 }
@@ -110,7 +110,7 @@ function reset() {
 }
 
 window.addEventListener("load", function() {
-    document.getElementById("max-wrong").innerHTML = maxWrong;
+    document.getElementById("max-mistakes").innerHTML = maxMistakes;
     setRandomAnswer();
     generateButtons();
     updateInputWord();

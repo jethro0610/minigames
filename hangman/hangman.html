@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <script src="../shared.js"></script>
         <script src="hangman.js"></script>
     </head>
 
@@ -22,7 +23,9 @@
             <img src="../home.png" alt="A home to go back to the main menu">
         </a>
         <header>Hangman</header>
-        <div id="wrong">Wrong Guesses: <span id="mistakes">0</span> of <span id="max-wrong"></span></div>
+        <div id="wrong">
+            Wrong Guesses: <span id="mistakes">0</span> of <span id="max-mistakes"></span>
+        </div>
         <!-- 
             Image source: self-made
             [https://opensource.org/license/mit]
