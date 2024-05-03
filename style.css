@@ -25,6 +25,16 @@
     box-shadow: 0px 2px gray;
 }
 
+.game-button:hover {
+    background-color: #C4BF93;
+    transition-duration: 0.2s;
+}
+
+.game-button:active {
+    background-color: #FFF8BF;
+    transition-duration: 0.2s;
+}
+
 .game-button > img {
     width: 64px;
     height: 64px;

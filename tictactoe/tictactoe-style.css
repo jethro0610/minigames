@@ -66,6 +66,11 @@
     transition-duration: 0.2s;
 }
 
+.tic-tac-toe-cell:active {
+    background-color: #FFF8BF;
+    transition-duration: 0.2s;
+}
+
 .tic-tac-toe-cell > div {
     font-size: 48px;
     animation-name: pop-in;
