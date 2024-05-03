@@ -71,7 +71,7 @@ function handleGuess(chosenLetter) {
 }
 
 function updateHangmanPicture() {
-  document.getElementById("pic").src = mistakes + ".png";
+  document.getElementById("pic").src = "./" + mistakes + ".png";
 }
 
 function checkIfGameWon() {

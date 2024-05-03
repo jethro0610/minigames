@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Jet's Arcade | Hangman</title>
         <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="hangman-style.css">
+        <link rel="stylesheet" href="./hangman-style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
@@ -23,7 +23,11 @@
         </a>
         <header>Hangman</header>
         <div id="wrong">Wrong Guesses: <span id="mistakes">0</span> of <span id="max-wrong"></span></div>
-        <img id="pic" src="0.png" alt="">
+        <!-- 
+            Image source: self-made
+            [https://opensource.org/license/mit]
+        -->
+        <img id="pic" src="./0.png" alt="">
         <div id="word-spotlight">The word to be guessed goes here</div>
         <div id="keyboard"></div>
         <button onClick="reset()">Reset</button>

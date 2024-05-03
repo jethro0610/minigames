@@ -12,12 +12,12 @@ const PIPE_WIDTH = 50;
 // Image source: self-made
 // [https://opensource.org/license/mit]
 const pipeSprite = new Image();
-pipeSprite.src = "pipe.png";
+pipeSprite.src = "./pipe.png";
 
 // Image source: self-made
 // [https://opensource.org/license/mit]
 const subSprite = new Image();
-subSprite.src = "sub.png";
+subSprite.src = "./sub.png";
 
 // Game state
 let player = {
